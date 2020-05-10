@@ -83,7 +83,7 @@ h1 {
 
 .warning {
   /* should be display: none when in use */
-  display: flex;
+  display: none;
   margin:20px 0;
   /* padding: 20px; */
   font-size: 1.5rem;
@@ -95,6 +95,7 @@ h1 {
   background-color: hsla(333deg, 100%, 44%, 0.25);
   border-radius: 10px;
   font-weight: bold;
+  padding: 20px;
 }
 
 
