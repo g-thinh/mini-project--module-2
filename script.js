@@ -85,3 +85,15 @@ submit.addEventListener('submit', function submitForm() {
 });
 
 // ######################## CLEAR BUTTON #####################################
+
+const clearBtn = document.getElementById("btn1");
+const inputFields = document.querySelectorAll(".input-field input");
+// console.log(inputFields);
+
+clearBtn.addEventListener('click', function() {
+  inputFields.forEach(field => {
+    field.value = '';
+  })
+  resetWarnings();
+  document.getElementById("agree-check").checked = false;
+})
