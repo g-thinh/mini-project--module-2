@@ -13,6 +13,7 @@ function check() {
   }
 }
 
+
 // ####################### SUBMIT FORM #########################################
 
 const password1 = document.getElementById("pw1");
@@ -34,7 +35,8 @@ function passwordsTooShort() {
   //document.getElementById("pwTooShort").style.display = "flex";
   warning.style.display = "flex";
   warning.innerText =
-    "Your password is too short! Must be at least 10 characters long";
+    `Your password is too short! Must be at least 10 characters long.
+    How about "${passwordSuggest()}" `;
   password1.style.border = '3px solid hsl(333deg, 100%, 44%)';
 }
 
@@ -97,3 +99,39 @@ clearBtn.addEventListener('click', function() {
   resetWarnings();
   document.getElementById("agree-check").checked = false;
 })
+
+
+// ####################### PASSWORD SUGGESTIONS ##############################
+
+//randomly created nouns
+const nounList = 
+  [
+  'type', 'tumors', 'coconut', 'parked', 'oat',
+  'boring', 'tackles', 'gasp', 'walkway', 'awards',
+  'fool', 'angie', 'pending', 'labeled', 'hit',
+  'shopping', 'tiger', 'truck', 'lebanon', 'art',
+  'camping', 'panda', 'plane', 'canada', 'red',
+  'skating', 'fish', 'bus', 'mexico', 'green',
+  'partying', 'macaw', 'bike', 'norway', 'purple',
+  'hopscotch', 'cake', 'blueberry', 'pineapple', 'pie'
+  ]
+
+console.log(nounList);
+
+//random integer in a range
+function randomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// console.log(randomInteger(0,nounList.length));
+
+//function to return a string of 4 words from the nounList array
+function passwordSuggest() {
+  let password = [];
+  for(let i=0; i < 4; i++) {
+    let word = nounList[randomInteger(0,nounList.length)];
+    password.push(word);
+  }
+  password = password.join('-');
+  return password;
+}
