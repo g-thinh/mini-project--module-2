@@ -27,6 +27,7 @@ function passwordsNoMatch() {
   // document.getElementById("noMatch").style.display = "flex";
   warning.style.display = "flex";
   warning.innerText = "Your passwords don't match!";
+  password2.style.border = '3px solid hsl(333deg, 100%, 44%)';
 }
 
 function passwordsTooShort() {
@@ -34,6 +35,7 @@ function passwordsTooShort() {
   warning.style.display = "flex";
   warning.innerText =
     "Your password is too short! Must be at least 10 characters long";
+  password1.style.border = '3px solid hsl(333deg, 100%, 44%)';
 }
 
 function resetWarnings() {
@@ -41,6 +43,9 @@ function resetWarnings() {
   // document.getElementById("pwTooShort").style.display = "none";
 
   warning.style.display = "none";
+  //reverts border to default
+  password2.style.border = '1px solid #ccc';
+  password1.style.border = '1px solid #ccc';
 }
 
 
@@ -78,3 +83,5 @@ submit.addEventListener('submit', function submitForm() {
   document.getElementById("myForm").submit();
   window.alert("Form received! Thank you!");
 });
+
+// ######################## CLEAR BUTTON #####################################
